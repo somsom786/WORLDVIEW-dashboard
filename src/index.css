@@ -1,0 +1,1105 @@
+/* ============================================
+   GLOBAL MACRO TERMINAL v3.0 - GLOBAL STYLES
+   Bloomberg Terminal meets Editorial Aesthetic
+   ============================================ */
+
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   CSS CUSTOM PROPERTIES (Bloomberg Palette)
+   ============================================ */
+
+:root {
+  /* Background Colors - Midnight Blue Theme */
+  --bg-void: #0a192f;
+  --bg-primary: #0d1117;
+  --bg-secondary: #111820;
+  --bg-panel: #141b24;
+  --bg-card: #1a222d;
+  --bg-elevated: #1f2937;
+
+  /* Border Colors */
+  --border-subtle: #1e2633;
+  --border-medium: #2d3748;
+  --border-strong: #4a5568;
+
+  /* Accent Colors - Bloomberg Style */
+  --accent-amber: #F59E0B;
+  --accent-amber-dim: rgba(245, 158, 11, 0.15);
+  --accent-green: #10B981;
+  --accent-green-dim: rgba(16, 185, 129, 0.15);
+  --accent-red: #EF4444;
+  --accent-red-dim: rgba(239, 68, 68, 0.15);
+  --accent-blue: #3B82F6;
+  --accent-blue-dim: rgba(59, 130, 246, 0.15);
+  --accent-cyan: #06B6D4;
+  --accent-cyan-dim: rgba(6, 182, 212, 0.15);
+
+  /* Legacy accent mapping */
+  --accent-alert: var(--accent-amber);
+  --accent-alert-dim: var(--accent-amber-dim);
+  --accent-money: var(--accent-green);
+  --accent-money-dim: var(--accent-green-dim);
+  --accent-tech: var(--accent-cyan);
+  --accent-tech-dim: var(--accent-cyan-dim);
+  --accent-warning: var(--accent-amber);
+  --accent-warning-dim: var(--accent-amber-dim);
+  --accent-danger: var(--accent-red);
+  --accent-danger-dim: var(--accent-red-dim);
+
+  /* Text Colors - Off-white for readability */
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --text-dim: #4B5563;
+  --text-amber: #FBBF24;
+
+  /* Semantic Colors */
+  --conflict: #EF4444;
+  --conflict-dim: rgba(239, 68, 68, 0.2);
+  --weather: #06B6D4;
+  --weather-dim: rgba(6, 182, 212, 0.2);
+  --economy: #10B981;
+  --economy-dim: rgba(16, 185, 129, 0.2);
+  --politics: #F59E0B;
+  --politics-dim: rgba(245, 158, 11, 0.2);
+
+  /* Market Colors */
+  --market-yes: #10B981;
+  --market-no: #EF4444;
+  --market-neutral: #6B7280;
+
+  /* Risk Levels */
+  --risk-critical: #DC2626;
+  --risk-high: #F59E0B;
+  --risk-moderate: #FBBF24;
+  --risk-low: #10B981;
+
+  /* Spacing - Tighter for density */
+  --panel-gap: 8px;
+  --card-radius: 4px;
+  --panel-radius: 6px;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Animation */
+  --transition-fast: 100ms ease;
+  --transition-medium: 200ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   TYPOGRAPHY - Editorial Style
+   ============================================ */
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Serif Headers - Editorial Style */
+.text-display {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.text-headline {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.text-title {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Sans-serif Body Text */
+.text-body {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.text-caption {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.text-micro {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   LAYOUT COMPONENTS
+   ============================================ */
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 280px 1fr 320px;
+  grid-template-rows: 1fr 56px;
+  gap: var(--panel-gap);
+  height: calc(100vh - 38px);
+  padding: var(--panel-gap);
+  background: var(--bg-void);
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--panel-radius);
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+}
+
+.panel-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.panel-content {
+  padding: 0;
+  overflow-y: auto;
+  height: calc(100% - 48px);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--card-radius);
+  padding: 12px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-elevated);
+}
+
+/* ============================================
+   MAP CONTAINER
+   ============================================ */
+
+.map-container {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  border-radius: var(--panel-radius);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.map-overlay {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.map-overlay-top {
+  top: 16px;
+  left: 16px;
+  right: 16px;
+}
+
+.map-overlay-bottom {
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+}
+
+/* ============================================
+   MAPLIBRE POPUP OVERRIDES
+   ============================================ */
+
+.maplibregl-popup-content {
+  background: #111111 !important;
+  border: 1px solid #2A2A2A !important;
+  border-radius: 6px !important;
+  padding: 0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+.maplibregl-popup-tip {
+  border-top-color: #111111 !important;
+  border-bottom-color: #111111 !important;
+}
+
+.maplibregl-popup-close-button {
+  color: #888888 !important;
+  font-size: 18px !important;
+  padding: 4px 8px !important;
+  right: 4px !important;
+  top: 4px !important;
+}
+
+.maplibregl-popup-close-button:hover {
+  color: #FFFFFF !important;
+  background: transparent !important;
+}
+
+/* ============================================
+   FILTER TOGGLES
+   ============================================ */
+
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(8px);
+}
+
+.filter-btn:hover {
+  background: rgba(30, 30, 30, 0.9);
+}
+
+.filter-btn.active {
+  border-color: currentColor;
+}
+
+.filter-btn.conflict {
+  color: var(--conflict);
+}
+
+.filter-btn.conflict.active {
+  background: var(--conflict-dim);
+}
+
+.filter-btn.weather {
+  color: var(--weather);
+}
+
+.filter-btn.weather.active {
+  background: var(--weather-dim);
+}
+
+.filter-btn.economy {
+  color: var(--economy);
+}
+
+.filter-btn.economy.active {
+  background: var(--economy-dim);
+}
+
+.filter-btn.politics {
+  color: var(--politics);
+}
+
+.filter-btn.politics.active {
+  background: var(--politics-dim);
+}
+
+/* ============================================
+   LIVE INDICATOR
+   ============================================ */
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-danger);
+  border-radius: 50%;
+  animation: pulse-live 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 3px rgba(255, 51, 51, 0.4);
+  }
+}
+
+.live-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-danger);
+}
+
+/* ============================================
+   EVENT CARDS
+   ============================================ */
+
+.event-card {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.event-card:hover {
+  background: var(--bg-elevated);
+}
+
+.event-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.event-type-badge {
+  display: inline-flex;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.event-type-badge.conflict {
+  background: var(--conflict-dim);
+  color: var(--conflict);
+  border: 1px solid var(--conflict);
+}
+
+.event-type-badge.weather {
+  background: var(--weather-dim);
+  color: var(--weather);
+  border: 1px solid var(--weather);
+}
+
+.event-type-badge.economy {
+  background: var(--economy-dim);
+  color: var(--economy);
+  border: 1px solid var(--economy);
+}
+
+.event-type-badge.politics {
+  background: var(--politics-dim);
+  color: var(--politics);
+  border: 1px solid var(--politics);
+}
+
+.event-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.event-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.event-source {
+  color: var(--text-secondary);
+}
+
+.event-time {
+  color: var(--text-muted);
+}
+
+.confidence-badge {
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.confidence-badge.verified {
+  background: var(--accent-money-dim);
+  color: var(--accent-money);
+}
+
+.confidence-badge.developing {
+  background: var(--accent-warning-dim);
+  color: var(--accent-warning);
+}
+
+.confidence-badge.rumor {
+  background: var(--accent-danger-dim);
+  color: var(--accent-danger);
+}
+
+/* ============================================
+   PANIC BAR (FOOTER)
+   ============================================ */
+
+.panic-bar {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--panel-radius);
+  overflow: hidden;
+}
+
+.defcon-meter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-subtle);
+  margin-left: -16px;
+  height: 100%;
+  justify-content: center;
+}
+
+.defcon-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.defcon-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.defcon-1 {
+  color: var(--defcon-1);
+  text-shadow: 0 0 20px var(--defcon-1);
+}
+
+.defcon-2 {
+  color: var(--defcon-2);
+  text-shadow: 0 0 15px var(--defcon-2);
+}
+
+.defcon-3 {
+  color: var(--defcon-3);
+  text-shadow: 0 0 10px var(--defcon-3);
+}
+
+.defcon-4 {
+  color: var(--defcon-4);
+}
+
+.defcon-5 {
+  color: var(--defcon-5);
+}
+
+/* ============================================
+   MARKET TICKER
+   ============================================ */
+
+.ticker-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 32px;
+  animation: ticker-scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.ticker-symbol {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ticker-price {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.ticker-change {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.ticker-change.positive {
+  color: var(--accent-money);
+}
+
+.ticker-change.negative {
+  color: var(--accent-danger);
+}
+
+/* ============================================
+   MAIN CHARACTER CARD
+   ============================================ */
+
+.main-character-card {
+  padding: 16px;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--card-radius);
+  margin: 12px;
+}
+
+.character-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.heat-meter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.heat-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.heat-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-warning), var(--accent-danger));
+  border-radius: 3px;
+  transition: width var(--transition-medium);
+}
+
+.heat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent-alert);
+}
+
+/* ============================================
+   NARRATIVE CLUSTERS
+   ============================================ */
+
+.narrative-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.narrative-item:hover {
+  background: var(--bg-elevated);
+}
+
+.narrative-severity {
+  width: 4px;
+  height: 32px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.narrative-severity.high {
+  background: var(--accent-danger);
+}
+
+.narrative-severity.medium {
+  background: var(--accent-warning);
+}
+
+.narrative-severity.low {
+  background: var(--accent-tech);
+}
+
+.narrative-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.narrative-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.narrative-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.glow-text {
+  text-shadow: 0 0 10px currentColor;
+}
+
+.glass {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fade-edge-right {
+  mask-image: linear-gradient(to right, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--bg-secondary) 25%,
+      var(--bg-elevated) 50%,
+      var(--bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--border-medium);
+  border-top-color: var(--accent-tech);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (max-width: 1400px) {
+  .dashboard {
+    grid-template-columns: 280px 1fr 300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .dashboard {
+    grid-template-columns: 260px 1fr;
+  }
+
+  .dashboard>*:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vh auto 64px;
+  }
+
+  .dashboard>*:nth-child(1) {
+    display: none;
+  }
+
+  .map-container {
+    grid-column: 1;
+  }
+}
+
+/* ============================================
+   POLYMARKET PROBABILITY BARS
+   ============================================ */
+
+.probability-bar {
+  display: flex;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.probability-bar-yes {
+  background: linear-gradient(90deg, var(--market-yes), #059669);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  transition: width var(--transition-medium);
+}
+
+.probability-bar-no {
+  background: linear-gradient(90deg, #DC2626, var(--market-no));
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  transition: width var(--transition-medium);
+}
+
+.market-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--card-radius);
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.market-card:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-elevated);
+}
+
+.market-title {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.market-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.market-volume {
+  color: var(--accent-amber);
+}
+
+/* ============================================
+   INTEL WIRE - HIGH DENSITY LIST
+   ============================================ */
+
+.intel-wire-item {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.intel-wire-item:hover {
+  background: var(--bg-elevated);
+}
+
+.intel-wire-time {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  padding-top: 2px;
+}
+
+.intel-wire-content {
+  min-width: 0;
+}
+
+.intel-wire-source {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.intel-wire-headline {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.intel-wire-tag {
+  display: inline-block;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.intel-wire-tag.high {
+  background: var(--accent-red-dim);
+  color: var(--accent-red);
+}
+
+.intel-wire-tag.medium {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+}
+
+.intel-wire-tag.low {
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+}
+
+/* ============================================
+   GLOBAL STATUS BAR
+   ============================================ */
+
+.global-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 12px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.status-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.status-chip.critical {
+  background: var(--accent-red-dim);
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+}
+
+.status-chip.warning {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+  border: 1px solid var(--accent-amber);
+}
+
+.status-chip.normal {
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green);
+}
+
+/* ============================================
+   MINI SPARKLINE
+   ============================================ */
+
+.sparkline {
+  display: inline-block;
+  width: 40px;
+  height: 12px;
+  vertical-align: middle;
+}
+
+.sparkline-up {
+  color: var(--accent-green);
+}
+
+.sparkline-down {
+  color: var(--accent-red);
+}
+
+/* ============================================
+   LEADER LINES (Map to Panel connections)
+   ============================================ */
+
+.leader-line {
+  stroke: var(--accent-amber);
+  stroke-width: 1;
+  stroke-dasharray: 4 2;
+  fill: none;
+  opacity: 0.6;
+}
+
+.leader-line-dot {
+  fill: var(--accent-amber);
+}
