@@ -1,73 +1,46 @@
-# React + TypeScript + Vite
+# WORLDVIEW // GLOBAL MACRO TERMINAL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![System Status](https://img.shields.io/badge/SYSTEM-ONLINE-success?style=for-the-badge&color=10B981)
+![Uptime](https://img.shields.io/badge/UPTIME-99.9%25-blue?style=for-the-badge&color=0EA5E9)
 
-Currently, two official plugins are available:
+**[ACCESS TERMINAL >> https://worldview-dashboard-nlfi.vercel.app/](https://worldview-dashboard-nlfi.vercel.app/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📡 Signal in the Noise
 
-## React Compiler
+WORLDVIEW is a specialized spatial operating system designed for the modern information arbitrageur. It visualizes the global state machine in real-time, fusing geopolitical chaos, prediction market odds, and raw intelligence streams into a single, high-density interface.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Move beyond headlines. Watch reality unfold on the map.
 
-## Expanding the ESLint configuration
+## ⚡ Core Systems
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🗺️ Reality Layer (Map)
+*   **Global Event Tracking**: Live visualization of Conflicts, Weather anomalies, Economic shocks, and Political upheaval.
+*   **Geospatial Interaction**: Click any sovereign territory to instantly query associated Prediction Markets.
+*   **Heat Mapping**: Real-time severity grading (SEV 1-10) with visual pulse indicators.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🔮 Prediction Engine (Polymarket Gamma)
+*   **Direct Feed**: Interfaced directly with Polymarket's Gamma API.
+*   **On-Map Probabilities**: Betting odds overlay directly on relevant countries.
+*   **Alpha Stream**: Track volume and liquidity flow in real-time. Don't trust the polls, trust the money.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 📠 Intel Wire
+*   **Aggregated Intelligence**: Multi-source feed combining mainstream headlines with raw crypto-native signal.
+*   **Sentiment Analysis**: Automated risk quantification.
+*   **Tree of Alpha Integration**: Low-latency crypto news stream (WebSocket).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### ⚠️ Global Risk Quantification
+*   **Panic Bar**: Real-time ticker of critical market data (BTC, ETH, GOLD, SPY).
+*   **DEFCON Meter**: Dynamic threat level assessment based on aggregate event severity.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*   **Core**: React 18, TypeScript, Vite
+*   **Visuals**: MapLibre GL, TailwindCSS (Cyberpunk/Bloomberg aesthetic)
+*   **State**: Zustand (Global Store)
+*   **Data**: NewsAPI, Polymarket API, USGS, NASA EONET, CoinGecko
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+> "The map is not the territory, but it's the best derivative we have."
+
+**Deploy**: `npm run build` // `vercel deploy`
