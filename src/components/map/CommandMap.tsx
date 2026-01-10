@@ -563,7 +563,7 @@ export function CommandMap() {
 
     // Interaction: Handle map clicks to select location
     const setSelectedLocation = useWorldStore((state) => state.setSelectedLocation);
-    const selectedLocation = useWorldStore((state) => state.selectedLocation);
+
 
     const handleMapClick = useCallback(async (event: any) => {
         const { lng, lat } = event.lngLat;

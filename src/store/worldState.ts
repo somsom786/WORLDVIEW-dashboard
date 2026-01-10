@@ -20,9 +20,11 @@ interface WorldStateActions {
     // Focus Mode
     setFocusedEvent: (event: WorldEvent | null) => void;
     clearFocusedEvent: () => void;
+    // Interaction Mode
+    setSelectedLocation: (location: string | null) => void;
 }
 
-const initialState: WorldState & { focusedEvent: WorldEvent | null } = {
+const initialState: WorldState = {
     events: [],
     markets: [],
     predictions: [],
@@ -42,7 +44,7 @@ const initialState: WorldState & { focusedEvent: WorldEvent | null } = {
     selectedLocation: null,
 };
 
-export const useWorldStore = create<WorldState & WorldStateActions & { selectedLocation: string | null, setSelectedLocation: (loc: string | null) => void }>((set) => ({
+export const useWorldStore = create<WorldState & WorldStateActions>((set) => ({
     ...initialState,
 
     setEvents: (events) => set({ events }),

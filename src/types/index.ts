@@ -71,6 +71,9 @@ export interface WorldState {
         economy: boolean;
         politics: boolean;
     };
+    // Interaction State
+    focusedEvent: WorldEvent | null;
+    selectedLocation: string | null;
 }
 
 export interface GeoJSONFeature {

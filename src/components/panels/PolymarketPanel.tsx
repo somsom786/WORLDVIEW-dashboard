@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TrendingUp, DollarSign, Activity, RefreshCw, MapPin, Search } from 'lucide-react';
+import { TrendingUp, RefreshCw, MapPin } from 'lucide-react';
 import { useSelectedLocation, useWorldStore } from '../../store/worldState';
 
 interface PolymarketEvent {
@@ -28,7 +28,7 @@ interface MarketCardProps {
 // Financial Terminal Probability Line
 function ProbabilityLine({ yesPrice }: { yesPrice: number }) {
     const yesPercent = Math.round(yesPrice * 100);
-    const noPercent = 100 - yesPercent;
+
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%' }}>
@@ -63,7 +63,7 @@ function ProbabilityLine({ yesPrice }: { yesPrice: number }) {
 }
 
 // Single Market Row (Terminal Style)
-function MarketRow({ title, yesPrice, noPrice, volume, liquidity }: MarketCardProps) {
+function MarketRow({ title, yesPrice, volume }: MarketCardProps) {
     const formatVolume = (vol: number) => {
         if (vol >= 1_000_000) return `${(vol / 1_000_000).toFixed(1)}M`;
         if (vol >= 1_000) return `${(vol / 1_000).toFixed(0)}K`;
@@ -115,7 +115,7 @@ export function PolymarketPanel() {
     const [markets, setMarkets] = useState<MarketCardProps[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+
 
     async function fetchPolymarketData() {
         setLoading(true);
@@ -188,7 +188,7 @@ export function PolymarketPanel() {
 
         setMarkets(parsedMarkets);
         setError(isFallback && selectedLocation ? `NO MARKETS FOR "${selectedLocation.toUpperCase()}"` : null);
-        setLastUpdate(new Date());
+
     };
 
     useEffect(() => {

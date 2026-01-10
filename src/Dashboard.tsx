@@ -9,7 +9,7 @@ import { CommandMap } from './components/map/CommandMap';
 import { IntelFeed } from './components/panels/IntelFeed';
 import { PolymarketPanel } from './components/panels/PolymarketPanel';
 import { PanicBar } from './components/footer/PanicBar';
-import { Activity, Wifi, WifiOff, AlertTriangle, Cloud, TrendingUp } from 'lucide-react';
+import { Wifi, WifiOff, AlertTriangle, Cloud, TrendingUp } from 'lucide-react';
 
 function LoadingOverlay() {
     return (
@@ -40,7 +40,6 @@ function GlobalStatusBar() {
     const events = useEvents();
 
     // Calculate risk levels
-    const conflictEvents = events.filter(e => e.type === 'conflict' && e.severity >= 6).length;
     const weatherEvents = events.filter(e => e.type === 'weather' && e.severity >= 5).length;
 
     const getRiskStatus = () => {
