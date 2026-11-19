@@ -1,46 +1,22 @@
-# WORLDVIEW // GLOBAL MACRO TERMINAL
+# WORLDVIEW
 
-![System Status](https://img.shields.io/badge/SYSTEM-ONLINE-success?style=for-the-badge&color=10B981)
-![Uptime](https://img.shields.io/badge/UPTIME-99.9%25-blue?style=for-the-badge&color=0EA5E9)
+An experimental macro research terminal that brings a world map, event feeds and market panels into a single React workspace.
 
-**[ACCESS TERMINAL >> https://worldview-dashboard-nlfi.vercel.app/](https://worldview-dashboard-nlfi.vercel.app/)**
+[Open the hosted demo](https://worldview-dashboard.vercel.app/)
 
-## 📡 Signal in the Noise
+## What to explore
 
-WORLDVIEW is a specialized spatial operating system designed for the modern information arbitrageur. It visualizes the global state machine in real-time, fusing geopolitical chaos, prediction market odds, and raw intelligence streams into a single, high-density interface.
+- **Map** — Explore the geographic context behind event markers and select countries to inspect associated prediction-market examples.
+- **Intel wire** — Scan events and headlines next to the map.
+- **Market panels** — Read ticker and prediction-market displays alongside the event stream.
 
-Move beyond headlines. Watch reality unfold on the map.
+The [data hook](src/hooks/useSituationData.ts) attempts public requests to NASA EONET, USGS and CoinGecko, plus NewsAPI when configured. It supplements missing data with simulated examples. The prediction-market panel uses simulated data, and displayed risk levels are prototype heuristics. Treat the hosted site as an interface demo.
 
-## ⚡ Core Systems
+## Run locally
 
-### 🗺️ Reality Layer (Map)
-*   **Global Event Tracking**: Live visualization of Conflicts, Weather anomalies, Economic shocks, and Political upheaval.
-*   **Geospatial Interaction**: Click any sovereign territory to instantly query associated Prediction Markets.
-*   **Heat Mapping**: Real-time severity grading (SEV 1-10) with visual pulse indicators.
+```sh
+npm ci
+npm run dev
+```
 
-### 🔮 Prediction Engine (Polymarket Gamma)
-*   **Direct Feed**: Interfaced directly with Polymarket's Gamma API.
-*   **On-Map Probabilities**: Betting odds overlay directly on relevant countries.
-*   **Alpha Stream**: Track volume and liquidity flow in real-time. Don't trust the polls, trust the money.
-
-### 📠 Intel Wire
-*   **Aggregated Intelligence**: Multi-source feed combining mainstream headlines with raw crypto-native signal.
-*   **Sentiment Analysis**: Automated risk quantification.
-*   **Tree of Alpha Integration**: Low-latency crypto news stream (WebSocket).
-
-### ⚠️ Global Risk Quantification
-*   **Panic Bar**: Real-time ticker of critical market data (BTC, ETH, GOLD, SPY).
-*   **DEFCON Meter**: Dynamic threat level assessment based on aggregate event severity.
-
-## 🛠️ Stack
-
-*   **Core**: React 18, TypeScript, Vite
-*   **Visuals**: MapLibre GL, TailwindCSS (Cyberpunk/Bloomberg aesthetic)
-*   **State**: Zustand (Global Store)
-*   **Data**: NewsAPI, Polymarket API, USGS, NASA EONET, CoinGecko
-
----
-
-> "The map is not the territory, but it's the best derivative we have."
-
-**Deploy**: `npm run build` // `vercel deploy`
+The stack is React, TypeScript, Vite, MapLibre GL and Zustand. See the [configuration example](.env.example) for optional local settings.
